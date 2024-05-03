@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IMAGE GALLERY</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="bgdark">
+        <h1 class="text">Explore the beauty of Wildlife</h1>
+      <div class="carousel-container">
+        <div class="carousel-slide">
+          <img src="./Assets/p1 (1).jpg" alt="Image 1" class="carousel-img" />
+          <img src="./Assets/p1 (11).jpg" alt="Image 2" class="carousel-img" />
+          <img src="./Assets/p1 (12).jpg" alt="Image 3" class="carousel-img" />
+          <img src="./Assets/p1 (13).jpg" alt="" class="carousel-img" />
+          <img src="./Assets/p1 (2).jpg" alt="Image 2" class="carousel-img" />
+          <img src="./Assets/p1 (4).jpg" alt="Image 3" class="carousel-img" />
+          <img src="./Assets/p1 (5).jpg" alt="Image 3" class="carousel-img" />
+          <img src="./Assets/p1 (6).jpg" alt="Image 3" class="carousel-img" />
+          <img src="./Assets/p1 (7).jpg" alt="Image 3" class="carousel-img" />
+        
+        </div>
+      </div>
+      <div class="navigation">
+        <button id="prevBtn" onclick="prevSlide()">&#10094; Back</button>
+        <button id="nextBtn" onclick="nextSlide()">Next &#10095;</button>
+      </div>
+    </div>
+
+    <script>
+      let slideIndex = 0;
+      const slides = document.querySelectorAll(".carousel-img");
+
+      function showSlide(index) {
+        if (index < 0) {
+          slideIndex = slides.length - 1;
+        } else if (index >= slides.length) {
+          slideIndex = 0;
+        }
+        const offset = -slideIndex * 100;
+        document.querySelector(
+          ".carousel-slide"
+        ).style.transform = `translateX(${offset}%)`;
+      }
+
+      function nextSlide() {
+        slideIndex++;
+        showSlide(slideIndex);
+      }
+
+      function prevSlide() {
+        slideIndex--;
+        showSlide(slideIndex);
+      }
+
+      showSlide(slideIndex);
+    </script>
+  </body>
+</html>
